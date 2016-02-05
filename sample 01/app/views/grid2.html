@@ -7,39 +7,42 @@
 <cm:dataGrid value="dataModel" id="myGrid"
 	style="width: 800px; height:400px" rows="20" var="_rowData_">
 
-	<cm:dataColumn id="VILLE" title="Ville" width="150px">
+	<cm:dataColumn id="VILLE" title="Ville" width="150px" resizeable="true">
 	</cm:dataColumn>
 	
 	<!-- Use the ID of the column as the fieldName in the row object -->
-	<cm:dataColumn id="CP" title="Postal code 1" width="60px" >
+	<cm:dataColumn id="CP" title="Postal code 1" width="60px"  resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
 	<!-- Specify the fieldName in the row object -->
-	<cm:dataColumn title="Postal code 2" width="60px" fieldName="CP">
+	<cm:dataColumn title="Postal code 2" width="60px" fieldName="CP" resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
 	<!--  use magic $row variable -->
-	<cm:dataColumn title="Postal code 3" width="60px" value="{{$row.CP}}">
+	<cm:dataColumn title="Postal code 3" width="60px" value="{{$row.CP}}" resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
 	<!-- use the var name specified in <cm:dataGrid var="xxx" > -->
-	<cm:dataColumn title="Postal code 4" width="60px" value="{{_rowData_.CP}}">
+	<cm:dataColumn title="Postal code 4" width="60px" value="{{_rowData_.CP}}" resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
 	<!-- You can use an expression -->
-	<cm:dataColumn title="10 - Postal code" width="60px" value="{{10 -_rowData_.CP}}">
+	<cm:dataColumn title="10 - Postal code" width="60px" value="{{10 -_rowData_.CP}}" resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
 	<!-- You can use angular filters -->
-	<cm:dataColumn title="Postal code/100" width="60px" value="{{_rowData_.CP | number}}">
+	<cm:dataColumn title="Postal code/100" width="60px" value="{{_rowData_.CP | number}}" resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
 	<!-- You can use an expression and filters -->
-	<cm:dataColumn title="Postal code/100" width="60px" value="{{(_rowData_.CP/100) | number: 1}}">
+	<cm:dataColumn title="Postal code/100" width="60px" value="{{(_rowData_.CP/100) | number: 1}}" resizeable="true" cellAlign="right">
 	</cm:dataColumn>
 	
-	<!-- You can specifiy a template for the cell  (next release ?) -->
-	<cm:dataColumn title="Postal code Template" width="60px">
+	<!-- You can specify a template for the title and/or the cell -->
+	<cm:dataColumn title="Postal code Template" width="60px" resizeable="true" cellAlign="right">
+		<cm:template name="title">
+			<label style="color: red; font-weigth: bold">{{$column.title}}</label>
+		</cm:template>
 		<cm:template name="cell">
 			<label style="color: red; font-weigth: bold">{{_rowData_.CP}}</label>
 		</cm:template>
