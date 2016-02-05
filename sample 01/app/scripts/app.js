@@ -12,18 +12,15 @@ angular.module(
 	$routeProvider.when('/', {
 		templateUrl: 'views/main.html',
 		controller: 'MainCtrl'
-	}).when('/main2.html', {
-		templateUrl: 'views/main2.html',
-		controller: 'MainCtrl2'
-	}).when('/main3.html', {
-		templateUrl: 'views/main3.html',
-		controller: 'MainCtrl3'
-	}).when('/main4.html', {
-		templateUrl: 'views/main4.html',
-		controller: 'MainCtrl4'
-	}).when('/main5.html', {
-		templateUrl: 'views/main5.html',
-		controller: 'MainCtrl5'
+			
+	}).when('/grid1', {
+		templateUrl: 'views/grid1.html',
+		controller: 'Grid1Ctrl'
+
+	}).when('/grid2', {
+		templateUrl: 'views/grid2.html',
+		controller: 'Grid2Ctrl'
+
 	}).otherwise({
 		redirectTo: '/'
 	});

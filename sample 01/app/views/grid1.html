@@ -1,0 +1,26 @@
+<h1>Datagrid sample</h1>
+
+<p>
+	<a href="https://github.com/Vedana/angular-camelia-samples/blob/master/sample%2001/app/views/grid1.html">Source code of this page.</a>
+</p>
+
+<cm:dataGrid value="dataModel" id="myGrid"
+	style="width: 800px; height:400px" rows="20">
+
+	<!-- Dont specify attribute "rows" more than 90, heroku will reject it ! -->
+
+	<cm:dataColumn id="VILLE" title="Ville" width="150px">
+	</cm:dataColumn>
+	<cm:dataColumn id="CP" title="Code postal" width="150px">
+	</cm:dataColumn>
+	<cm:dataColumn id="NOMADMIN2" title="Département" width="150px">
+	</cm:dataColumn>
+	<cm:dataColumn id="CODEADMIN2" title="Numéro département" width="150px">
+	</cm:dataColumn>
+
+	<cm:dataColumn id="NOMADMIN1" title="Région" width="150px">
+	</cm:dataColumn>
+
+</cm:dataGrid>
+
+<cm:pager for="myGrid"></cm:pager>

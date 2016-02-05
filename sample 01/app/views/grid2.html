@@ -1,0 +1,54 @@
+<h1>Datagrid column value specification.</h1>
+
+<p>
+	<a href="https://github.com/Vedana/angular-camelia-samples/blob/master/sample%2001/app/views/grid2.html">Source code of this page.</a>
+</p>
+
+<cm:dataGrid value="dataModel" id="myGrid"
+	style="width: 800px; height:400px" rows="20" var="_rowData_">
+
+	<cm:dataColumn id="VILLE" title="Ville" width="150px">
+	</cm:dataColumn>
+	
+	<!-- Use the ID of the column as the fieldName in the row object -->
+	<cm:dataColumn id="CP" title="Postal code 1" width="60px" >
+	</cm:dataColumn>
+	
+	<!-- Specify the fieldName in the row object -->
+	<cm:dataColumn title="Postal code 2" width="60px" fieldName="CP">
+	</cm:dataColumn>
+	
+	<!--  use magic $row variable -->
+	<cm:dataColumn title="Postal code 3" width="60px" value="{{$row.CP}}">
+	</cm:dataColumn>
+	
+	<!-- use the var name specified in <cm:dataGrid var="xxx" > -->
+	<cm:dataColumn title="Postal code 4" width="60px" value="{{_rowData_.CP}}">
+	</cm:dataColumn>
+	
+	<!-- You can use an expression -->
+	<cm:dataColumn title="10 - Postal code" width="60px" value="{{10 -_rowData_.CP}}">
+	</cm:dataColumn>
+	
+	<!-- You can use angular filters -->
+	<cm:dataColumn title="Postal code/100" width="60px" value="{{_rowData_.CP | number}}">
+	</cm:dataColumn>
+	
+	<!-- You can use an expression and filters -->
+	<cm:dataColumn title="Postal code/100" width="60px" value="{{(_rowData_.CP/100) | number: 1}}">
+	</cm:dataColumn>
+	
+	<!-- You can specifiy a template for the cell  (next release ?) -->
+	<cm:dataColumn title="Postal code Template" width="60px">
+		<cm:template name="cell">
+			<label style="color: red; font-weigth: bold">{{_rowData_.CP}}</label>
+		</cm:template>
+	</cm:dataColumn>
+
+</cm:dataGrid>
+
+<cm:pager for="myGrid">
+	<cm:template name="bprev">
+		<button id="hello">{{text}}</button>
+	</cm:template>
+</cm:pager>
