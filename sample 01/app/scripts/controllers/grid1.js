@@ -6,5 +6,5 @@
  * @description # Grid1Ctrl Controller of the datagridsApp
  */
 angular.module('orgcameliajsApp').controller('Grid1Ctrl', [ "$scope", "$resource", function($scope, $resource) {
-	$scope.dataModel = $resource("http://camelia-regions.herokuapp.com/query");
+	$scope.dataModel = $resource("https://camelia-regions.herokuapp.com/query");
 } ]);
